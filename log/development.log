@@ -1,0 +1,564 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (27.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (16.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlaces (20091215182343)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "places" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "last_ate_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091215182343')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("places")[0m
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:24:39) [GET]
+  [4;36;1mPlace Load (0.4ms)[0m   [0;1mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 87ms (View: 83, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:24:57) [GET]
+Rendering template within layouts/places
+Rendering places/new
+
+ActionView::TemplateError (undefined method `last_ate_at' for #<Place:0x1043e2c18>) on line #12 of app/views/places/new.html.erb:
+9:   </p>
+10:   <p>
+11:     <%= f.label :last_ate_at %><br />
+12:     <%= f.datetime_select :last_ate_at %>
+13:   </p>
+14:   <p>
+15:     <%= f.submit 'Create' %>
+
+    app/views/places/new.html.erb:12
+    app/views/places/new.html.erb:3
+    app/controllers/places_controller.rb:29:in `new'
+
+Rendered rescues/_trace (54.2ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:25:14) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 121ms (View: 117, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:25:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"last_ate_at(3i)"=>"15", "name"=>"Portillo's", "last_ate_at(4i)"=>"18", "last_ate_at(5i)"=>"25", "last_ate_at(1i)"=>"2009", "last_ate_at(2i)"=>"12"}}
+  [4;35;1mPlace Create (0.6ms)[0m   [0mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Portillo''s', '2009-12-15 18:25:00', '2009-12-15 18:25:24', '2009-12-15 18:25:24')[0m
+Redirected to http://localhost:3001/places/1
+Completed in 12ms (DB: 1) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:25:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/places/1]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:25:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/places/1]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:26:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/places/1]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:26:25) [GET]
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 75ms (View: 71, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:26:33) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:26:36) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"last_ate_at(3i)"=>"15", "name"=>"Taco Bell", "last_ate_at(4i)"=>"18", "last_ate_at(5i)"=>"26", "last_ate_at(1i)"=>"2009", "last_ate_at(2i)"=>"12"}}
+  [4;36;1mPlace Create (0.3ms)[0m   [0;1mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Taco Bell', '2009-12-15 18:26:00', '2009-12-15 18:26:36', '2009-12-15 18:26:36')[0m
+Redirected to http://localhost:3001/places/2
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:26:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 2) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/places/2]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:26:38) [GET]
+  [4;36;1mPlace Load (0.5ms)[0m   [0;1mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:26:39) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:26:46) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"last_ate_at(3i)"=>"15", "name"=>"Hooters", "last_ate_at(4i)"=>"18", "last_ate_at(5i)"=>"26", "last_ate_at(1i)"=>"2009", "last_ate_at(2i)"=>"12"}}
+  [4;35;1mPlace Create (0.3ms)[0m   [0mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Hooters', '2009-12-15 18:26:00', '2009-12-15 18:26:46', '2009-12-15 18:26:46')[0m
+Redirected to http://localhost:3001/places/3
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:26:46) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 3) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 2, DB: 0) | 200 OK [http://localhost/places/3]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:29:05) [GET]
+  Parameters: {"id"=>"random"}
+  [4;35;1mPlace Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: random: SELECT * FROM "places" ORDER BY random LIMIT 1[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: random: SELECT * FROM "places"  ORDER BY random LIMIT 1):
+  app/controllers/places_controller.rb:17:in `show'
+
+Rendered rescues/_trace (39.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:29:14) [GET]
+  Parameters: {"id"=>"random"}
+  [4;36;1mPlace Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such function: RAND: SELECT * FROM "places" ORDER BY RAND() LIMIT 1[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such function: RAND: SELECT * FROM "places"  ORDER BY RAND() LIMIT 1):
+  app/controllers/places_controller.rb:17:in `show'
+
+Rendered rescues/_trace (40.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:30:04) [GET]
+  Parameters: {"id"=>"random"}
+  [4;35;1mPlace Load (0.6ms)[0m   [0mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:30:05) [GET]
+  Parameters: {"id"=>"random"}
+  [4;36;1mPlace Load (0.5ms)[0m   [0;1mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:30:06) [GET]
+  Parameters: {"id"=>"random"}
+  [4;35;1mPlace Load (0.6ms)[0m   [0mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:30:07) [GET]
+  Parameters: {"id"=>"random"}
+  [4;36;1mPlace Load (0.5ms)[0m   [0;1mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:30:07) [GET]
+  Parameters: {"id"=>"random"}
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:30:08) [GET]
+  Parameters: {"id"=>"random"}
+  [4;36;1mPlace Load (0.5ms)[0m   [0;1mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:30:16) [GET]
+  [4;35;1mPlace Load (0.6ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 15ms (View: 11, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#destroy (for 127.0.0.1 at 2009-12-15 12:30:19) [DELETE]
+  Parameters: {"authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "id"=>"1"}
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 1) [0m
+  [4;35;1mPlace Destroy (0.3ms)[0m   [0mDELETE FROM "places" WHERE "id" = 1[0m
+Redirected to http://localhost:3001/places
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/places/1]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:30:19) [GET]
+  [4;36;1mPlace Load (0.7ms)[0m   [0;1mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 15ms (View: 10, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#destroy (for 127.0.0.1 at 2009-12-15 12:30:20) [DELETE]
+  Parameters: {"authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "id"=>"2"}
+  [4;35;1mPlace Load (0.3ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 2) [0m
+  [4;36;1mPlace Destroy (0.6ms)[0m   [0;1mDELETE FROM "places" WHERE "id" = 2[0m
+Redirected to http://localhost:3001/places
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/places/2]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:30:20) [GET]
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#destroy (for 127.0.0.1 at 2009-12-15 12:30:22) [DELETE]
+  Parameters: {"authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "id"=>"3"}
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 3) [0m
+  [4;35;1mPlace Destroy (0.4ms)[0m   [0mDELETE FROM "places" WHERE "id" = 3[0m
+Redirected to http://localhost:3001/places
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/places/3]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:30:22) [GET]
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 6ms (View: 1, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:30:24) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:32:31) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:32:34) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"name"=>"Taco Bell"}}
+  [4;35;1mPlace Create (0.4ms)[0m   [0mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Taco Bell', NULL, '2009-12-15 18:32:34', '2009-12-15 18:32:34')[0m
+Redirected to http://localhost:3001/places/4
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:32:34) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 4) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://localhost/places/4]
+
+
+Processing PlacesController#eat_at (for 127.0.0.1 at 2009-12-15 12:32:36) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 4) [0m
+  [4;36;1mPlace Update (0.3ms)[0m   [0;1mUPDATE "places" SET "updated_at" = '2009-12-15 18:32:36', "last_ate_at" = '2009-12-15 18:32:36' WHERE "id" = 4[0m
+Redirected to http://localhost:3001/places
+Completed in 71ms (DB: 0) | 302 Found [http://localhost/places/4/eat_at]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:32:37) [GET]
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:32:42) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 4) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/4]
+
+
+Processing PlacesController#eat_at (for 127.0.0.1 at 2009-12-15 12:32:43) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 4) [0m
+  [4;36;1mPlace Update (0.3ms)[0m   [0;1mUPDATE "places" SET "updated_at" = '2009-12-15 18:32:43', "last_ate_at" = '2009-12-15 18:32:43' WHERE "id" = 4[0m
+Redirected to http://localhost:3001/places
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places/4/eat_at]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:32:43) [GET]
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:32:45) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 4) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/4]
+
+
+Processing PlacesController#eat_at (for 127.0.0.1 at 2009-12-15 12:32:47) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 4) [0m
+  [4;36;1mPlace Update (0.3ms)[0m   [0;1mUPDATE "places" SET "updated_at" = '2009-12-15 18:32:47', "last_ate_at" = '2009-12-15 18:32:47' WHERE "id" = 4[0m
+Redirected to http://localhost:3001/places
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/places/4/eat_at]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:32:47) [GET]
+  [4;35;1mPlace Load (0.4ms)[0m   [0mSELECT * FROM "places" [0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:33:00) [GET]
+  [4;36;1mPlace Load (16.9ms)[0m   [0;1mSELECT * FROM "places" ORDER BY last_ate_at[0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 27ms (View: 7, DB: 17) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:33:02) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 69ms (View: 4, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:33:05) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"name"=>"Portillo's"}}
+  [4;35;1mPlace Create (0.4ms)[0m   [0mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Portillo''s', NULL, '2009-12-15 18:33:05', '2009-12-15 18:33:05')[0m
+Redirected to http://localhost:3001/places/5
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:33:05) [GET]
+  Parameters: {"id"=>"5"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 5) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/5]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:33:07) [GET]
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" ORDER BY last_ate_at[0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:33:44) [GET]
+  [4;36;1mPlace Load (0.5ms)[0m   [0;1mSELECT * FROM "places" ORDER BY last_ate_at[0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:33:46) [GET]
+  Parameters: {"id"=>"random"}
+  [4;35;1mPlace Load (0.5ms)[0m   [0mSELECT * FROM "places" ORDER BY Random() LIMIT 1[0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/random]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:34:13) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:34:21) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"name"=>"Hooters"}}
+  [4;36;1mPlace Create (0.4ms)[0m   [0;1mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Hooters', NULL, '2009-12-15 18:34:21', '2009-12-15 18:34:21')[0m
+Redirected to http://localhost:3001/places/6
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:34:21) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 6) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/6]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:34:24) [GET]
+  [4;36;1mPlace Load (0.6ms)[0m   [0;1mSELECT * FROM "places" ORDER BY last_ate_at[0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:34:26) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:34:31) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"name"=>"Potbelly's"}}
+  [4;35;1mPlace Create (0.4ms)[0m   [0mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Potbelly''s', NULL, '2009-12-15 18:34:31', '2009-12-15 18:34:31')[0m
+Redirected to http://localhost:3001/places/7
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:34:31) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 7) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/places/7]
+
+
+Processing PlacesController#edit (for 127.0.0.1 at 2009-12-15 12:34:34) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 7) [0m
+Rendering template within layouts/places
+Rendering places/edit
+Completed in 21ms (View: 17, DB: 0) | 200 OK [http://localhost/places/7/edit]
+
+
+Processing PlacesController#update (for 127.0.0.1 at 2009-12-15 12:34:38) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "id"=>"7", "place"=>{"last_ate_at(3i)"=>"15", "name"=>"Potbelly", "last_ate_at(4i)"=>"18", "last_ate_at(5i)"=>"34", "last_ate_at(1i)"=>"2009", "last_ate_at(2i)"=>"12"}}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 7) [0m
+  [4;35;1mPlace Update (0.4ms)[0m   [0mUPDATE "places" SET "updated_at" = '2009-12-15 18:34:38', "name" = 'Potbelly', "last_ate_at" = '2009-12-15 18:34:00' WHERE "id" = 7[0m
+Redirected to http://localhost:3001/places/7
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/places/7]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:34:38) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mPlace Load (0.3ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 7) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/places/7]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:34:41) [GET]
+  [4;35;1mPlace Load (0.6ms)[0m   [0mSELECT * FROM "places" ORDER BY last_ate_at[0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 82ms (View: 77, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:34:42) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:34:56) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:35:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"name"=>"Garrett Ripley's"}}
+  [4;36;1mPlace Create (0.4ms)[0m   [0;1mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Garrett Ripley''s', NULL, '2009-12-15 18:35:04', '2009-12-15 18:35:04')[0m
+Redirected to http://localhost:3001/places/8
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:35:04) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mPlace Load (0.2ms)[0m   [0mSELECT * FROM "places" WHERE ("places"."id" = 8) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/places/8]
+
+
+Processing PlacesController#index (for 127.0.0.1 at 2009-12-15 12:35:06) [GET]
+  [4;36;1mPlace Load (0.8ms)[0m   [0;1mSELECT * FROM "places" ORDER BY last_ate_at[0m
+Rendering template within layouts/places
+Rendering places/index
+Completed in 21ms (View: 17, DB: 1) | 200 OK [http://localhost/places]
+
+
+Processing PlacesController#new (for 127.0.0.1 at 2009-12-15 12:35:13) [GET]
+Rendering template within layouts/places
+Rendering places/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/places/new]
+
+
+Processing PlacesController#create (for 127.0.0.1 at 2009-12-15 12:35:16) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"eZSgGNZCQFV0Mmvmkurl+G7iL0MPIznSqbVTZptKkio=", "place"=>{"name"=>"Panang"}}
+  [4;35;1mPlace Create (0.3ms)[0m   [0mINSERT INTO "places" ("name", "last_ate_at", "created_at", "updated_at") VALUES('Panang', NULL, '2009-12-15 18:35:16', '2009-12-15 18:35:16')[0m
+Redirected to http://localhost:3001/places/9
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/places]
+
+
+Processing PlacesController#show (for 127.0.0.1 at 2009-12-15 12:35:16) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mPlace Load (0.2ms)[0m   [0;1mSELECT * FROM "places" WHERE ("places"."id" = 9) [0m
+Rendering template within layouts/places
+Rendering places/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/places/9]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePlaces (20091215182343)
+Migrating to AddCostToPlaces (20091215183627)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (69.4ms)[0m   [0mALTER TABLE "places" ADD "cost" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091215183627')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("places")[0m

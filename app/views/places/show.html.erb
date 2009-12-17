@@ -1,0 +1,16 @@
+<p>
+  <b>Name:</b>
+  <%=h @place.name %>
+</p>
+
+<p>
+  <b>Last ate at:</b>
+  <%=h @place.last_ate_at %>
+</p>
+
+<p>
+  <%= link_to 'Eat Here!', eat_at_place_path(@place) %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
