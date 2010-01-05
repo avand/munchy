@@ -8,19 +8,14 @@
   <tr>
     <th>Name</th>
     <th>Last ate at</th>
+    <th>Cost</th>
   </tr>
 
 <% @places.each do |place| %>
   <tr>
-    <td><%=h place.name %></td>
-    <td>
-      <% if place.last_ate_at.nil? %>
-        Never
-      <% else %>
-        <%= time_ago_in_words place.last_ate_at %> ago
-      <% end %>
-    </td>
-    <td><%= link_to 'Show', place %></td>
+    <td><%= link_to place.name, place %></td>
+    <td><%= ate_ago_in_words(place.last_ate_at) %></td>
+    <td><%=h place.cost %></td>
     <td><%= link_to 'Edit', edit_place_path(place) %></td>
     <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

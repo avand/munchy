@@ -8,8 +8,8 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :last_ate_at %><br />
-    <%= f.datetime_select :last_ate_at %>
+    <%= f.label :cost %><br />
+    <%= f.select :cost, ['Cheap', 'Moderate', 'Expensive'] %>
   </p>
   <p>
     <%= f.submit 'Update' %>

@@ -5,7 +5,12 @@
 
 <p>
   <b>Last ate at:</b>
-  <%=h @place.last_ate_at %>
+  <%= ate_ago_in_words(@place.last_ate_at) %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @place.cost %>
 </p>
 
 <p>
